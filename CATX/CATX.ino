@@ -99,8 +99,7 @@ void loop()
 //   Use h, H, or 1 for HIGH. Use l, L, or 0 for LOW
 void writeDPin()
 {
-	while (XBee.available() < 2)
-		; // Wait for pin and value to become available
+	while (XBee.available() < 2); // Wait for pin and value to become available
 	char pin = XBee.read();
 	char hl = ASCIItoHL(XBee.read());
 
