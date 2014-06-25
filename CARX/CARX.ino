@@ -1,25 +1,33 @@
-//#include <xbee.h>
-#include <SoftwareSerial.h>
+/*==================================
+CARX
 
 
-SoftwareSerial xbee(8, 9); // RX, TX xbee pins
+=================================*/
 
-int received1=11;  
-unsigned long output1;
 
-void setup(){  
-	pinMode(received1, OUTPUT);  
-	xbee.begin(9600);  
-	Serial.begin(9600);  
-}  
+
+int RXLED = 17;  // The RX LED has a defined Arduino pin
+// The TX LED was not so lucky, we'll need to use pre-defined
+// macros (TXLED1, TXLED0) to control that.
+// (We could use the same macros for the RX LED too -- RXLED1,
+//  and RXLED0.)
+
+void setup()
+{
+	pinMode(RXLED, OUTPUT);  // Set RX LED as an output // TX LED is set as an output behind the scenes
+	Serial.begin(9600); //This pipes to the serial monitor, this is the line to the USB
+	Serial1.begin(9600); //This is the UART, this is the line to the xbee
+}
+
 void loop()
-{  
-	if(xbee.available())  
-	{  
-		output1 = xbee.read();  
-		///digitalWrite(received1,output1);
-		analogWrite(received1,output1);
-		Serial.println(output1);
-		//digitalWrite(received1, HIGH);      
-	}  
+{
+	Serial.println("Hello world");  // Print "Hello World" to the Serial Monitor
+	Serial1.println("Hello!");  // Print "Hello!" over hardware UART
+
+	digitalWrite(RXLED, LOW);   // set the LED on
+	TXLED0; //TX LED is not tied to a normally controlled pin
+	delay(1000);              // wait for a second
+	digitalWrite(RXLED, HIGH);    // set the LED off
+	TXLED1;
+	delay(1000);              // wait for a second
 }
