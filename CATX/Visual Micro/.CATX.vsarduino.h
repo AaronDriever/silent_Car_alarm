@@ -1,12 +1,12 @@
 #ifndef _VSARDUINO_H_
 #define _VSARDUINO_H_
-//Board = SparkFun Fio V3 3.3V/8MHz
-#define __AVR_ATmega32U4__
+//Board = Arduino Uno
+#define __AVR_ATmega328P__
 #define 
 #define ARDUINO 101
 #define ARDUINO_MAIN
 #define __AVR__
-#define F_CPU 8000000L
+#define F_CPU 16000000L
 #define __cplusplus
 #define __inline__
 #define __asm__(x)
@@ -39,7 +39,7 @@ int ASCIItoHL(char c);
 int ASCIItoInt(char c);
 void printMenu();
 
-#include "C:\Program Files (x86)\Arduino\hardware\SF32u4_boards-master\variants\promicro\pins_arduino.h" 
+#include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "D:\Vault\silent_Car_alarm\CATX\CATX.ino"
 #endif

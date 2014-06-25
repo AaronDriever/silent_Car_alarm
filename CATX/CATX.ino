@@ -58,6 +58,7 @@ void setup()
 	XBee.begin(9600); 
 	delay(5000); // To allow the xbee's proccesor to boot up
 	XBee.println("B"); // To put xbee's proccesor in bypass mode.
+	delay(10);
 	printMenu(); // Print a helpful menu:
 
 }
@@ -124,8 +125,7 @@ void writeDPin()
 //   Must send all 3 digits, so use leading zeros if necessary.
 void writeAPin()
 {
-	while (XBee.available() < 4)
-		; // Wait for pin and three value numbers to be received
+	while (XBee.available() < 4); // Wait for pin and three value numbers to be received
 	char pin = XBee.read(); // Read in the pin number
 	int value = ASCIItoInt(XBee.read()) * 100; // Convert next three
 	value += ASCIItoInt(XBee.read()) * 10;     // chars to a 3-digit
@@ -149,8 +149,7 @@ void writeAPin()
 // The Arduino will print the digital reading of the pin to XBee.
 void readDPin()
 {
-	while (XBee.available() < 1)
-		; // Wait for pin # to be available.
+	while (XBee.available() < 1); // Wait for pin # to be available.
 	char pin = XBee.read(); // Read in the pin value
 
 	// Print beggining of message
@@ -170,8 +169,7 @@ void readDPin()
 // The Arduino will print the analog reading of the pin to XBee.
 void readAPin()
 {
-	while (XBee.available() < 1)
-		; // Wait for pin # to be available
+	while (XBee.available() < 1); // Wait for pin # to be available
 	char pin = XBee.read(); // read in the pin value
 
 	// Print beginning of message
