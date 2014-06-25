@@ -60,7 +60,6 @@ void setup()
 	XBee.println("B"); // To put xbee's proccesor in bypass mode.
 	delay(10);
 	printMenu(); // Print a helpful menu:
-
 }
 
 void loop()
@@ -177,8 +176,8 @@ void readAPin()
 	XBee.print(pin);
 
 	pin = ASCIItoInt(pin); // Convert pin to 0-6 value
-	// Printthe rest of the message:
-	XBee.print(" = ");
+
+	XBee.print(" = "); // Printthe rest of the message:
 	XBee.println(analogRead(pin));
 }
 
@@ -186,11 +185,10 @@ void readAPin()
 // Helper function to turn an ASCII value into either HIGH or LOW
 int ASCIItoHL(char c)
 {
-	// If received 0, byte value 0, L, or l: return LOW
-	// If received 1, byte value 1, H, or h: return HIGH
-	if ((c == '0') || (c == 0) || (c == 'L') || (c == 'l'))
+
+	if ((c == '0') || (c == 0) || (c == 'L') || (c == 'l')) // If received 0, byte value 0, L, or l: return LOW
 		return LOW;
-	else if ((c == '1') || (c == 1) || (c == 'H') || (c == 'h'))
+	else if ((c == '1') || (c == 1) || (c == 'H') || (c == 'h')) // If received 1, byte value 1, H, or h: return HIGH
 		return HIGH;
 	else
 		return -1;
