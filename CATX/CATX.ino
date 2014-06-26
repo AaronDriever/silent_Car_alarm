@@ -235,3 +235,37 @@ void printMenu()
 	XBee.println(F("============================"));  
 	XBee.println();
 }
+
+
+// Actual alarm functions
+
+
+void doAthing()  // Read temperature
+{
+
+}
+
+void doBthing() // Read left door sensor
+{
+
+}
+
+void doCthing() // Read right door sensor
+{
+
+}
+
+void doDthing() // Read rear hatch sensor
+{
+
+}
+
+void doEthing() // Read hood sensor
+{
+
+}
+
+void doFthing() // 
+{
+
+}

@@ -38,6 +38,12 @@ void readAPin();
 int ASCIItoHL(char c);
 int ASCIItoInt(char c);
 void printMenu();
+void doAthing();
+void doBthing();
+void doCthing();
+void doDthing();
+void doEthing();
+void doFthing();
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
