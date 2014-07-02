@@ -3,6 +3,16 @@ CATX
 By A.D
 2014
 
+Write your Arduino's pins (analog or digital) or read from those
+pins (analog or digital) using a remote XBee.
+Jim Lindblom @ SparkFun Electronics
+Original Creation Date: May 7, 2014
+
+This sketch requires an XBee, XBee Shield and another XBee tied to
+your computer (via a USB Explorer). You can use XCTU's console, or
+another serial terminal program (even the serial monitor!), to send
+commands to the Arduino. 
+
 Example usage (send these commands from your computer terminal):
 w#nnn - analog WRITE pin # to nnn
 e.g. w6088 - write pin 6 to 88
@@ -22,6 +32,17 @@ Hardware Hookup:
 The Arduino shield makes all of the connections you'll need
 between Arduino and XBee. Make sure the SWITCH IS IN THE 
 "DLINE" POSITION.
+
+Development environment specifics:
+IDE: Arduino 1.0.5
+Hardware Platform: Arduino Uno R3
+XBee Shield & XBee Pro 900HP
+XBee USB Explorer connected to computer with another
+XBee Series 1 1mW connected to that.
+
+This code is beerware; if you see me (or any other SparkFun 
+employee) at the local, and you've found our code helpful, please 
+buy us a round!
 
 Distributed as-is; no warranty is given.
 *****************************************************************/
@@ -221,88 +242,30 @@ void printMenu()
 
 void doAthing()  // Read temperature
 {
-	while (XBee.available() < 1); // Wait for pin # to be available
-	char pin = XBee.read(); // read in the pin value // set this to the analog pin used for the temp sensor
 
-	// Print beginning of message
-	XBee.print("Temp"); // prints the text "Temp" //XBee.print("Pin A");
-	XBee.print(pin); // this might be removed
-
-	pin = ASCIItoInt(pin); // Convert pin to 0-6 value
-
-	XBee.print(" = "); // Print the rest of the message:
-	XBee.println(analogRead(pin));
 }
 
 void doBthing() // Read left door sensor
 {
-	while (XBee.available() < 1); // Wait for pin # to be available.
-	char pin = XBee.read(); // Read in the pin value
 
-	// Print beggining of message
-	XBee.print("Pin ");
-	XBee.print(pin);
-
-	pin = ASCIItoInt(pin); // Convert pin to 0-13 value
-	pinMode(pin, INPUT); // Set as input
-
-	// Print the rest of the message:
-	XBee.print(" = "); 
-	XBee.println(digitalRead(pin));
 }
 
 void doCthing() // Read right door sensor
 {
-	while (XBee.available() < 1); // Wait for pin # to be available.
-	char pin = XBee.read(); // Read in the pin value
 
-	// Print beggining of message
-	XBee.print("Pin ");
-	XBee.print(pin);
-
-	pin = ASCIItoInt(pin); // Convert pin to 0-13 value
-	pinMode(pin, INPUT); // Set as input
-
-	// Print the rest of the message:
-	XBee.print(" = "); 
-	XBee.println(digitalRead(pin));
 }
 
 void doDthing() // Read rear hatch sensor
 {
-	while (XBee.available() < 1); // Wait for pin # to be available.
-	char pin = XBee.read(); // Read in the pin value
 
-	// Print beggining of message
-	XBee.print("Pin ");
-	XBee.print(pin);
-
-	pin = ASCIItoInt(pin); // Convert pin to 0-13 value
-	pinMode(pin, INPUT); // Set as input
-
-	// Print the rest of the message:
-	XBee.print(" = "); 
-	XBee.println(digitalRead(pin));
 }
 
 void doEthing() // Read hood sensor
 {
-	while (XBee.available() < 1); // Wait for pin # to be available.
-	char pin = XBee.read(); // Read in the pin value
 
-	// Print beggining of message
-	XBee.print("Pin ");
-	XBee.print(pin);
-
-	pin = ASCIItoInt(pin); // Convert pin to 0-13 value
-	pinMode(pin, INPUT); // Set as input
-
-	// Print the rest of the message:
-	XBee.print(" = "); 
-	XBee.println(digitalRead(pin));
 }
 
-void doFthing() // to be determined...
+void doFthing() // 
 {
 
 }
